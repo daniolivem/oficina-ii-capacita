@@ -7,4 +7,8 @@ router.get('/', AlunoController.listarAlunos) //define a rota para requisições
 
 router.post('/', AlunoController.criarAluno)
 
+router.put('/:id', AlunoController.atualizarAluno)
+
+// router.delete('/:id', AlunoController.deletarAluno)
+
 module.exports = router;
