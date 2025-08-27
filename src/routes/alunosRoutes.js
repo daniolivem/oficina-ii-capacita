@@ -9,6 +9,6 @@ router.post('/', AlunoController.criarAluno)
 
 router.put('/:id', AlunoController.atualizarAluno)
 
-// router.delete('/:id', AlunoController.deletarAluno)
+router.delete('/:id', AlunoController.deletarAluno)
 
 module.exports = router;
