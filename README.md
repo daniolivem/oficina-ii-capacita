@@ -2,7 +2,7 @@
 
 ## 📚 Descrição do Projeto
 
-Sistema de cadastro de alunos e professores desenvolvido em Node.js com Express, PostgreSQL e Prisma ORM, estruturado no padrão MVC (Model-View-Controller). Este projeto foi desenvolvido como parte da disciplina Oficina II.
+Sistema de cadastro de alunos e professores desenvolvido em Node.js com Express, PostgreSQL e Prisma ORM, estruturado no padrão MVC (Model-View-Controller). Este projeto foi desenvolvido como parte da do Módullo Avançado.
 
 ## 👥 Equipe
 
@@ -467,7 +467,7 @@ oficina-ii-capacita/
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido para fins educacionais como parte da disciplina Oficina II - Módulo Avançado do Capacita Brasil.
+Este projeto foi desenvolvido para fins educacionais como parte do Módulo Avançado do Capacita Brasil.
 
 ---
 
