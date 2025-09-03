@@ -9,7 +9,7 @@ const ProfessorController = {
         } catch (error) {
             console.error(error);
             return res.status(500).json({ error: "Erro ao buscar professores, tente novamente." });
-        }
+        } 
     },
 
     async criarProfessor(req, res) {
@@ -29,7 +29,7 @@ const ProfessorController = {
             
             return res.status(201).json({
                 message: "Professor criado com sucesso",
-                aluno: novoProfessor
+                professor: novoProfessor
             });
 
         } catch (error) {
@@ -61,7 +61,7 @@ const ProfessorController = {
             
             return res.status(200).json({
                 message: "Professor atualizado com sucesso",
-                aluno: professorAtualizado
+                professor: professorAtualizado
             });
         } catch (error) {
             console.error(error);
@@ -91,7 +91,7 @@ const ProfessorController = {
             
             return res.status(200).json({
                 message: "Professor excluído com sucesso",
-                aluno: professorExcluido
+                professor: professorExcluido
             });
         } catch (error) {
             console.error(error);

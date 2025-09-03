@@ -1,5 +1,5 @@
 const { Router } = require('express'); //importa a f router do express
-const ProfessorController = require('../controllers/ProfessorController') //importa o controller de alunos
+const ProfessorController = require('../controllers/ProfessorController') //importa o controller de profs
 
 const router = Router() //cria a instancia do router
 
