@@ -96,7 +96,7 @@ node src/server.js
 
 O servidor estará rodando em: `http://localhost:3000`
 
-## 📖 Documentação da API
+## 📖 Documentação e Exemplos da API
 
 ### 🎓 Endpoints - Alunos
 
@@ -122,7 +122,9 @@ GET /alunos
 POST /alunos
 Content-Type: application/x-www-form-urlencoded
 
-nome=João Silva&email=joao@email.com&idade=20
+nome=João Silva
+email=joao@email.com
+idade=20
 ```
 
 **Resposta (Sucesso - 201):**
@@ -158,7 +160,8 @@ nome=João Silva&email=joao@email.com&idade=20
 PUT /alunos/:id
 Content-Type: application/x-www-form-urlencoded
 
-nome=João Santos&email=joao.santos@email.com
+nome=João Santos
+email=joao.santos@email.com
 ```
 
 **Resposta (Sucesso - 200):**
@@ -243,7 +246,9 @@ GET /professores
 POST /professores
 Content-Type: application/x-www-form-urlencoded
 
-nome=Maria Silva&email=maria@email.com&idade=35
+nome=Maria Silva
+email=maria@email.com
+idade=35
 ```
 
 **Resposta (Sucesso - 201):**
@@ -278,7 +283,8 @@ nome=Maria Silva&email=maria@email.com&idade=35
 PUT /professores/:id
 Content-Type: application/x-www-form-urlencoded
 
-nome=Maria Santos&email=maria.santos@email.com
+nome=Maria Santos
+email=maria.santos@email.com
 ```
 
 **Resposta (Sucesso - 200):**
@@ -442,187 +448,7 @@ oficina-ii-capacita/
 }
 ```
 
-## 🧪 Testando a API
 
-### Postman/Insomnia
-
-1. **Importar Collection**: Use os endpoints documentados acima
-2. **Configurar Headers**: Para POST/PUT, use `Content-Type: application/x-www-form-urlencoded`
-3. **Base URL**: `http://localhost:3000`
-
-### Exemplos de Teste
-
-#### 1. Cadastrar Aluno
-
-```http
-POST http://localhost:3000/alunos
-Content-Type: application/x-www-form-urlencoded
-
-nome=João Silva
-email=joao@email.com
-idade=20
-```
-
-**Resposta esperada:**
-
-```json
-{
-  "message": "Aluno criado com sucesso",
-  "aluno": {
-    "id": 1,
-    "nome": "João Silva",
-    "email": "joao@email.com",
-    "idade": 20
-  }
-}
-```
-
-#### 2. Listar Todos os Alunos
-
-```http
-GET http://localhost:3000/alunos
-```
-
-**Resposta esperada:**
-
-```json
-[
-  {
-    "id": 1,
-    "nome": "João Silva",
-    "email": "joao@email.com",
-    "idade": 20
-  }
-]
-```
-
-#### 3. Atualizar Aluno
-
-```http
-PUT http://localhost:3000/alunos/1
-Content-Type: application/x-www-form-urlencoded
-
-nome=João Santos
-email=joao.santos@email.com
-```
-
-**Resposta esperada:**
-
-```json
-{
-  "message": "Aluno atualizado com sucesso",
-  "aluno": {
-    "id": 1,
-    "nome": "João Santos",
-    "email": "joao.santos@email.com",
-    "idade": 20
-  }
-}
-```
-
-#### 4. Deletar Aluno
-
-```http
-DELETE http://localhost:3000/alunos/1
-```
-
-**Resposta esperada:**
-
-```json
-{
-  "message": "Aluno excluído com sucesso",
-  "aluno": {
-    "id": 1,
-    "nome": "João Santos",
-    "email": "joao.santos@email.com",
-    "idade": 20
-  }
-}
-```
-
-#### 5. Cadastrar Professor
-
-```http
-POST http://localhost:3000/professores
-Content-Type: application/x-www-form-urlencoded
-
-nome=Maria Silva
-email=maria@email.com
-idade=35
-```
-
-**Resposta esperada:**
-```json
-{
-  "message": "Professor criado com sucesso",
-  "professor": {
-    "id": 2,
-    "nome": "Maria Silva",
-    "email": "maria@email.com",
-    "idade": 35
-  }
-}
-```
-
-#### 6. Listar Todos os Professores
-
-```http
-GET http://localhost:3000/professores
-```
-
-**Resposta esperada:**
-```json
-[
-  {
-    "id": 1,
-    "nome": "Carlos Almeida",
-    "email": "carlos.almeida@email.com",
-    "idade": 35
-  }
-]
-```
-
-#### 7. Atualizar Professor
-
-```http
-PUT http://localhost:3000/professores/2
-Content-Type: application/x-www-form-urlencoded
-
-nome=Maria Santos
-email=maria.santos@email.com
-```
-
-**Resposta esperada:**
-```json
-{
-  "message": "Professor atualizado com sucesso",
-  "professor": {
-    "id": 2,
-    "nome": "Maria Santos",
-    "email": "maria.santos@email.com",
-    "idade": 35
-  }
-}
-```
-
-#### 8. Deletar Professor
-
-```http
-DELETE http://localhost:3000/professores/2
-```
-
-**Resposta esperada:**
-```json
-{
-  "message": "Professor excluído com sucesso",
-  "professor": {
-    "id": 2,
-    "nome": "Maria Santos",
-    "email": "maria.santos@email.com",
-    "idade": 35
-  }
-}
-```
 
 ## 🤝 Contribuição
 
