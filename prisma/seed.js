@@ -16,6 +16,21 @@ async function main() {
     })
   }
   console.log("Alunos inseridos no registro");
+
+  const criarProfessores = [
+    { nome: "Carlos Almeida", email: "carlos.almeida@email.com", idade: 35 },
+    { nome: "Mariana Sales", email: "mariana.sales@email.com", idade: 47 },
+    { nome: "Junior Santos", email: "junir.santos@email.com", idade: 60 },
+    { nome: "Luiza Costa", email: "luiza.costa@email.com", idade: 55 },
+    { nome: "Marcos Torres", email: "marcos.torres@email.com", idade: 41 },
+  ];
+  //laço para percorrer os objetos e inserir os dados de cada professor a cada volta
+  for (const professor of criarProfessores) {
+    await prisma.professor.create({
+        data: professor,
+    })
+  }
+  console.log("Professores inseridos no registro");
 }
 main()
   .catch((e) => {
