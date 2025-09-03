@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const ProfessorController = {
-    async listarAlunos(req, res) {
+    async listarProfessores(req, res) {
         try {
             const professores = await prisma.professor.findMany();
             return res.status(200).json(professores);
