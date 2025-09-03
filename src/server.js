@@ -7,7 +7,7 @@ const port = 3000;
 //para ler dados em json
 app.use(express.json())
 //para ler dados via x-form
-app.use(express.urlencoded({ extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 app.use('/alunos', alunoRoutes) //conecta as rotas de alunos ao servidor
 app.use('/professores', professoresRoutes) //conecta as rotas de professores ao servidor

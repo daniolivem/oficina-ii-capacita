@@ -26,10 +26,10 @@ Sistema de cadastro de alunos e professores desenvolvido em Node.js com Express,
 - ✅ Excluir aluno
 
 ### 👨‍🏫 Módulo Professores
-- ⏳ Listar todos os professores
-- ⏳ Cadastrar novo professor
-- ⏳ Atualizar dados do professor
-- ⏳ Excluir professor
+- ✅ Listar todos os professores
+- ✅ Cadastrar novo professor
+- ✅ Atualizar dados do professor
+- ✅ Excluir professor
 
 ## 🗄️ Modelo de Dados
 
@@ -226,12 +226,51 @@ DELETE /alunos/:id
 GET /professores
 ```
 
+**Resposta:**
+```json
+[
+  {
+    "id": 1,
+    "nome": "Carlos Almeida",
+    "email": "carlos.almeida@email.com",
+    "idade": 35
+  }
+]
+```
+
 #### Cadastrar novo professor
 ```http
 POST /professores
 Content-Type: application/x-www-form-urlencoded
 
 nome=Maria Silva&email=maria@email.com&idade=35
+```
+
+**Resposta (Sucesso - 201):**
+```json
+{
+  "message": "Professor criado com sucesso",
+  "professor": {
+    "id": 2,
+    "nome": "Maria Silva",
+    "email": "maria@email.com",
+    "idade": 35
+  }
+}
+```
+
+**Resposta (Erro - 400):**
+```json
+{
+  "error": "Dados inválidos. Por favor, preencha todos os campos."
+}
+```
+
+**Resposta (Erro - 409):**
+```json
+{
+  "error": "E-mail já cadastrado."
+}
 ```
 
 #### Atualizar professor
@@ -242,9 +281,56 @@ Content-Type: application/x-www-form-urlencoded
 nome=Maria Santos&email=maria.santos@email.com
 ```
 
+**Resposta (Sucesso - 200):**
+```json
+{
+  "message": "Professor atualizado com sucesso",
+  "professor": {
+    "id": 2,
+    "nome": "Maria Santos",
+    "email": "maria.santos@email.com",
+    "idade": 35
+  }
+}
+```
+
+**Resposta (Erro - 404):**
+```json
+{
+  "error": "Professor não encontrado."
+}
+```
+
+**Resposta (Erro - 409):**
+```json
+{
+  "error": "O email inserido já está sendo utilizado."
+}
+```
+
 #### Excluir professor
 ```http
 DELETE /professores/:id
+```
+
+**Resposta (Sucesso - 200):**
+```json
+{
+  "message": "Professor excluído com sucesso",
+  "professor": {
+    "id": 2,
+    "nome": "Maria Santos",
+    "email": "maria.santos@email.com",
+    "idade": 35
+  }
+}
+```
+
+**Resposta (Erro - 404):**
+```json
+{
+  "error": "Professor não encontrado."
+}
 ```
 
 ## 🔧 Scripts Disponíveis
@@ -340,6 +426,14 @@ oficina-ii-capacita/
 }
 ```
 
+#### Professor Não Encontrado
+
+```json
+{
+  "error": "Professor não encontrado."
+}
+```
+
 #### Erro Interno
 
 ```json
@@ -364,7 +458,9 @@ oficina-ii-capacita/
 POST http://localhost:3000/alunos
 Content-Type: application/x-www-form-urlencoded
 
-nome=João Silva&email=joao@email.com&idade=20
+nome=João Silva
+email=joao@email.com
+idade=20
 ```
 
 **Resposta esperada:**
@@ -406,7 +502,8 @@ GET http://localhost:3000/alunos
 PUT http://localhost:3000/alunos/1
 Content-Type: application/x-www-form-urlencoded
 
-nome=João Santos&email=joao.santos@email.com
+nome=João Santos
+email=joao.santos@email.com
 ```
 
 **Resposta esperada:**
@@ -443,6 +540,90 @@ DELETE http://localhost:3000/alunos/1
 }
 ```
 
+#### 5. Cadastrar Professor
+
+```http
+POST http://localhost:3000/professores
+Content-Type: application/x-www-form-urlencoded
+
+nome=Maria Silva
+email=maria@email.com
+idade=35
+```
+
+**Resposta esperada:**
+```json
+{
+  "message": "Professor criado com sucesso",
+  "professor": {
+    "id": 2,
+    "nome": "Maria Silva",
+    "email": "maria@email.com",
+    "idade": 35
+  }
+}
+```
+
+#### 6. Listar Todos os Professores
+
+```http
+GET http://localhost:3000/professores
+```
+
+**Resposta esperada:**
+```json
+[
+  {
+    "id": 1,
+    "nome": "Carlos Almeida",
+    "email": "carlos.almeida@email.com",
+    "idade": 35
+  }
+]
+```
+
+#### 7. Atualizar Professor
+
+```http
+PUT http://localhost:3000/professores/2
+Content-Type: application/x-www-form-urlencoded
+
+nome=Maria Santos
+email=maria.santos@email.com
+```
+
+**Resposta esperada:**
+```json
+{
+  "message": "Professor atualizado com sucesso",
+  "professor": {
+    "id": 2,
+    "nome": "Maria Santos",
+    "email": "maria.santos@email.com",
+    "idade": 35
+  }
+}
+```
+
+#### 8. Deletar Professor
+
+```http
+DELETE http://localhost:3000/professores/2
+```
+
+**Resposta esperada:**
+```json
+{
+  "message": "Professor excluído com sucesso",
+  "professor": {
+    "id": 2,
+    "nome": "Maria Santos",
+    "email": "maria.santos@email.com",
+    "idade": 35
+  }
+}
+```
+
 ## 🤝 Contribuição
 
 1. Fork o projeto
@@ -460,7 +641,7 @@ DELETE http://localhost:3000/alunos/1
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido para fins educacionais como parte da disciplina Oficina II Capacita Brasil.
+Este projeto foi desenvolvido para fins educacionais como parte da disciplina Oficina II - Módulo Avançado do Capacita Brasil.
 
 ---
 

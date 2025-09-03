@@ -1,4 +1,4 @@
-const { PrismaClient } = require('../src/generated/prisma');
+const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 async function main() {
   //array de objetos para tornar mais fácil a inserção de dados
@@ -11,8 +11,11 @@ async function main() {
   ];
   //laço para percorrer os objetos e inserir os dados de cada aluno a cada volta
   for (const aluno of criarAlunos) {
-    await prisma.aluno.create({
-        data: aluno,
+    await prisma.aluno.upsert({
+      where: { email: aluno.email },
+      update: {},
+      create: aluno,
+      
     })
   }
   console.log("Alunos inseridos no registro");
@@ -26,8 +29,10 @@ async function main() {
   ];
   //laço para percorrer os objetos e inserir os dados de cada professor a cada volta
   for (const professor of criarProfessores) {
-    await prisma.professor.create({
-        data: professor,
+    await prisma.professor.upsert({
+        where: { email: professor.email },
+        update: {},
+        create: professor,
     })
   }
   console.log("Professores inseridos no registro");
